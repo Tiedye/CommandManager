@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  * A self contained command interpreter.
- * 
+ *
  * @author Daniel
  */
 public class CommandManager {
@@ -17,12 +17,13 @@ public class CommandManager {
     private final HashMap<String, Command> commands;
     private final InputStream in;
     private final PrintStream out;
-    
+
     private boolean running;
-    
+
     /**
-     * Initialized the <code>Command Manager</code> with an input and output stream.
-     * 
+     * Initialized the <code>Command Manager</code> with an input and output
+     * stream.
+     *
      * @param in the stream to read from.
      * @param out the stream to write to.
      */
@@ -32,22 +33,23 @@ public class CommandManager {
         running = false;
         commands = new HashMap<>();
     }
-    
+
     /**
      * Associates a command name with a <code>Command</code>.
-     * 
+     *
      * @param name the name of the command.
      * @param command the <code>Command</code> to link the name to.
      */
     public void registerCommand(String name, Command command) {
         commands.put(name, command);
     }
-    
+
     /**
      * Dissociates the <code>Command</code> from the name.
-     * 
+     *
      * @param name command name which will have its associations cleared.
-     * @throws NoSuchCommandException if there is no associations with said command name.
+     * @throws NoSuchCommandException if there is no associations with said
+     * command name.
      */
     public void clearCommand(String name) throws NoSuchCommandException {
         if (commands.containsKey(name)) {
@@ -56,7 +58,7 @@ public class CommandManager {
             throw new NoSuchCommandException(name);
         }
     }
-    
+
     /**
      * Begins interpreting the text from the input stream as commands.
      */

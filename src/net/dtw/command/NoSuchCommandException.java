@@ -2,7 +2,7 @@ package net.dtw.command;
 
 /**
  * Indicates a command does not exist.
- * 
+ *
  * @author Daniel
  */
 public class NoSuchCommandException extends Exception {

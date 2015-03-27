@@ -2,7 +2,7 @@ package net.dtw.command;
 
 /**
  * Indicates an invalid number of arguments.
- * 
+ *
  * @author Daniel
  */
 public class IllegalArgumentCountException extends Exception {
