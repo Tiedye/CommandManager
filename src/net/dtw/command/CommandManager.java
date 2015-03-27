@@ -39,7 +39,7 @@ public class CommandManager {
      * @param name the name of the command.
      * @param command the <code>Command</code> to link the name to.
      */
-    public void setCommand(String name, Command command) {
+    public void registerCommand(String name, Command command) {
         commands.put(name, command);
     }
     
@@ -49,7 +49,7 @@ public class CommandManager {
      * @param name command name which will have its associations cleared.
      * @throws NoSuchCommandException if there is no associations with said command name.
      */
-    public void removeCommand(String name) throws NoSuchCommandException {
+    public void clearCommand(String name) throws NoSuchCommandException {
         if (commands.containsKey(name)) {
             commands.remove(name);
         } else {
