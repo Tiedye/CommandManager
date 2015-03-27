@@ -1,4 +1,4 @@
-## CommandManager
+## CommandManager v0.1
 Implements a simple command line interface.
 ### Usage
 To use this library, create Commands by extending the `Command` abstract class.   Then create an instance of the `CommandManager` with `System.in` as the input stream and `System.out` as the output stream.  Register each command in the manager with `CommandManager.registerCommand()`.  Finally use `CommandManager.startInterpreting()` method to begin reading the users commands.
