@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.dtw.command;
 
 import java.io.InputStream;
@@ -13,7 +8,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- *
+ * A self contained command interpreter.
+ * 
  * @author Daniel
  */
 public class CommandManager {
@@ -23,18 +19,36 @@ public class CommandManager {
     private final PrintStream out;
     
     private boolean running;
-
+    
+    /**
+     * Initialized the <code>Command Manager</code> with an input and output stream.
+     * 
+     * @param in the stream to read from.
+     * @param out the stream to write to.
+     */
     public CommandManager(InputStream in, PrintStream out) {
         this.in = in;
         this.out = out;
         running = false;
         commands = new HashMap<>();
     }
-
+    
+    /**
+     * Associates a command name with a <code>Command</code>.
+     * 
+     * @param name the name of the command.
+     * @param command the <code>Command</code> to link the name to.
+     */
     public void setCommand(String name, Command command) {
         commands.put(name, command);
     }
-
+    
+    /**
+     * Dissociates the <code>Command</code> from the name.
+     * 
+     * @param name command name which will have its associations cleared.
+     * @throws NoSuchCommandException if there is no associations with said command name.
+     */
     public void removeCommand(String name) throws NoSuchCommandException {
         if (commands.containsKey(name)) {
             commands.remove(name);
@@ -42,7 +56,10 @@ public class CommandManager {
             throw new NoSuchCommandException(name);
         }
     }
-
+    
+    /**
+     * Begins interpreting the text from the input stream as commands.
+     */
     public void startInterpreting() {
         Scanner input = new Scanner(in);
         running = true;
@@ -64,6 +81,9 @@ public class CommandManager {
         }
     }
 
+    /**
+     * Stops interpreting commands from the input stream.
+     */
     public void stopInterpreting() {
         running = false;
     }

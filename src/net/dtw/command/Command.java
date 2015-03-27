@@ -1,19 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.dtw.command;
 
 import java.io.InputStream;
 import java.io.PrintStream;
 
 /**
- *
- * @author Daniel
+ * The abstraction of the commands used by the <code>CommandManager</code>.
+ * 
+ * @author Daniel Whitney
  */
 public abstract class Command {
     
+    /**
+     * Gives arguments, an input, and an output stream to the class so its 
+     * command may be executed.  Handles the two exceptions elegantly.
+     * 
+     * @param args the array of strings that are the programs arguments.
+     * @param in the command input stream.
+     * @param out the command output stream.
+     * @throws IllegalArgumentException if an argument is of the wrong type.
+     * @throws IllegalArgumentCountException if an invalid number of arguments was given.
+     */
     protected abstract void doCommand(String[] args, InputStream in, PrintStream out) throws IllegalArgumentException, IllegalArgumentCountException;
     
 }
