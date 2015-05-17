@@ -5,7 +5,7 @@ package net.dtw.command;
  *
  * @author Daniel
  */
-public class NoSuchCommandException extends Exception {
+public class NoSuchCommandException extends Error {
 
     /**
      * Creates a new instance of <code>NoSuchCommandException</code> without

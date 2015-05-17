@@ -8,7 +8,8 @@ import java.io.PrintStream;
  *
  * @author Daniel Whitney
  */
-public abstract class Command {
+@FunctionalInterface
+public interface Command {
 
     /**
      * Gives arguments, an input, and an output stream to the class so its
@@ -21,6 +22,6 @@ public abstract class Command {
      * @throws IllegalArgumentCountException if an invalid number of arguments
      * was given.
      */
-    protected abstract void doCommand(String[] args, InputStream in, PrintStream out) throws IllegalArgumentException, IllegalArgumentCountException;
+    void doCommand(String[] args, InputStream in, PrintStream out);
 
 }

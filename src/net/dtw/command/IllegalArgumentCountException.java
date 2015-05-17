@@ -5,7 +5,7 @@ package net.dtw.command;
  *
  * @author Daniel
  */
-public class IllegalArgumentCountException extends Exception {
+public class IllegalArgumentCountException extends Error {
 
     /**
      * Creates a new instance of <code>IllegalArgumentCountException</code>
